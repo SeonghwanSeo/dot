@@ -42,7 +42,7 @@ local function directory_exist(dir_path)
 end
 
 local function requirePath(path) 
-  files = io.popen('find $HOME/.config/nvim/lua/' .. path .. ' -type f')
+  files = io.popen('find $CONFIG_DIR/nvim/lua/' .. path .. ' -type f')
 
   for file in files:lines() do
     local req_file = file:gmatch('%/lua%/(.+).lua$'){0}:gsub('/', '.')
