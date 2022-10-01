@@ -69,9 +69,21 @@ function _G.SignColumnToggle()
   end
 end
 
+local nu = true
+function _G.NumberToggle()
+  if nu then
+    vim.api.nvim_command("set nonumber")
+    nu = false
+  else
+    vim.api.nvim_command("set number")
+    nu = true
+  end
+end
+
 function _G.copy_mode()
   vim.api.nvim_command("Gitsigns toggle_signs")
   vim.api.nvim_command("IndentBlanklineToggle")
+  NumberToggle()
   SignColumnToggle()
 end
 custom_map("n", "<leader>cp", ":lua copy_mode()<CR>")

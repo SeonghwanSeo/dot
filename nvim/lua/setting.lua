@@ -34,7 +34,7 @@ end
 -- window-local options
 window_options = {
     -- numberwidth = 2,
-    -- number = true,
+    number = true,
     linebreak = true,
     cursorline = true,
 }

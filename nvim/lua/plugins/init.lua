@@ -4,8 +4,7 @@ local api = vim.api
 local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-  vim.cmd "packadd packer.nvim"
-end
+  vim.cmd "packadd packer.nvim" end
 
 local packer = require"packer"
 local util = require"packer.util"
@@ -31,15 +30,17 @@ packer.startup(function()
       "saadparwaiz1/cmp_luasnip",
     }
   }
+  use {"neovim/nvim-lspconfig"}
+
   use {
     "hoob3rt/lualine.nvim",
     requires = {"kyazdani42/nvim-web-devicons"}
   }
-  use {"neovim/nvim-lspconfig"}
   use {
     "akinsho/bufferline.nvim",
     tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'
   }
+
   use {
     "lewis6991/gitsigns.nvim",
     requires = {"nvim-lua/plenary.nvim" }
@@ -51,16 +52,12 @@ packer.startup(function()
   -- use {"glepnir/dashboard-nvim"}
   use {"sbdchd/neoformat"} -- Autoformat the code
 
-  -- use {"vim-airline/vim-airline"}
-  -- use {"vim-airline/vim-airline-themes"}
-  -- use {"windwp/nvim-autopairs"} -- Autopairing parentheses, quotes
+  use {"windwp/nvim-autopairs"} -- Autopairing parentheses, quotes
 
   -- Colorscheme
-  -- use {"morhetz/gruvbox"}
-  use {"sainnhe/gruvbox-material"}
-  -- use {"catppuccin/nvim", as = "catppuccin"}
-  -- use {"sickill/vim-monokai"} use {"danilo-augusto/vim-afterglow"}
+  -- use {"sainnhe/gruvbox-material"}
+  use {"folke/tokyonight.nvim"}
 
-  -- use {"RRethy/vim-illuminate"} -- Highlight the words on the cursor
+  use {"RRethy/vim-illuminate"} -- Highlight the words on the cursor
   use {"lukas-reineke/indent-blankline.nvim"} -- Indent lines
 end)
