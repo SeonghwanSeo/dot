@@ -38,5 +38,25 @@ alias gr='git restore --staged'
 if { [ "$SHELLTYPE" = 'BASH' ]; } then
     source $CONFIG_DIR/git/git-completion.bash
 fi
-
 source $CONFIG_DIR/git/git-prompt.sh
+
+# PS1
+PS1_BASH='\
+\e[0;32m\]\u@\h: \
+\e[0;36m\]\w\
+\e[0;35m\]$(__git_ps1)
+\e[2;32;47m\]\$\e[m\] '
+
+PS1_ZSH='\
+%{$fg[green]%}%n@%m: \
+%{$fg[cyan]%}%~\
+%{$fg[magenta]%}$(__git_ps1)
+%{$fg[green]%}%{$bg[white]%}$%{$reset_color%} ' 
+
+# /u@/h: dir (git)
+if { [ "$SHELLTYPE" = 'BASH' ]; } then
+    export PS1=$PS1_BASH
+    #export PS1='\e[0;32m\]\u@\h: \e[0;36m\]\w\e[0;35m\]$(__git_ps1) \e[0;m\][\t] \n\e[2;32;47m\]\$\e[m\] '
+else
+    export PS1=$PS1_ZSH
+fi
