@@ -19,13 +19,18 @@ custom_map("n", "<leader>g", ":Gitsigns preview_hunk<CR>")
 custom_map("n", "<leader>gn", ":Gitsigns next_hunk<CR>")
 custom_map("n", "<leader>gp", ":Gitsigns prev_hunk<CR>")
 custom_map("n", "Y", "y$")
-custom_map("x", "K", ":move '<-2<CR>gv-gv")
-custom_map("x", "K", ":move '>+1<CR>gv-gv")
 
 -- Buffer
-custom_map("n", "<C-n>", ":bn<CR>", {noremap = true})
-custom_map("n", "<C-p>", ":bp<CR>", {noremap = true})
+custom_map("n", "<leader>j", ":bp<CR>", {noremap = true})
+custom_map("n", "<leader>k", ":bn<CR>", {noremap = true})
+custom_map("n", "C-p", ":bp<CR>", {noremap = true})
+custom_map("n", "C-n", ":bn<CR>", {noremap = true})
 custom_map("n", "<C-x>", ":bd<CR>", {noremap = true})
+
+--Tab
+custom_map("n", "T", ":tabnew<CR>", {noremap = true})
+custom_map("n", "[", ":tabprevious<CR>", {noremap = true})
+custom_map("n", "]", ":tabnext<CR>", {noremap = true})
 
 vim.api.nvim_exec([[
   cnoreabbrev W! w!

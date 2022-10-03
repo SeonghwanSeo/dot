@@ -20,6 +20,14 @@ require"bufferline".setup {
       fg = "#f7768e",
       bg = "#1a1b26",
     },
+    tab = {
+      fg = "#a9b1d6",
+      bg = "#1a1b26",
+    },
+    tab_selected = {
+      fg = "#f7768e",
+      bg = "#1a1b26",
+    },
     numbers_selected = {
       fg = "#f7768e",
       bold = true,
