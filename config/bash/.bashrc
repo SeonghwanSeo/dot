@@ -1,8 +1,7 @@
 # .bashrc
-export CONFIG_DIR=$SH_DIR/config
 export TERM=xterm-256color
 
-alias shome='cd $SH_DIR'
+alias shome='cd $WORK_DIR'
 
 alias mv='mv -i'
 alias rm='rm -i'
@@ -36,5 +35,8 @@ alias gal='git add .'
 alias gcm='git commit -m '
 alias gr='git restore --staged'
 
-# source $CONFIG_DIR/completion/git-completion.bash
-# source $CONFIG_DIR/completion/git-prompt.sh
+if { [ "$SHELLTYPE" = 'BASH' ]; } then
+    source $CONFIG_DIR/git/git-completion.bash
+fi
+
+source $CONFIG_DIR/git/git-prompt.sh
