@@ -38,10 +38,10 @@ require"bufferline".setup {
     },
   },
   options = {
-    numbers = "buffer_id",
+    numbers = 'ordinal',
     indicator = {
+      numbers = 'ordinal',
       style = 'underline',
-      numbers = 'buffer_id',
     },
     show_buffer_icons = false,
     show_buffer_close_icons = false,

@@ -20,21 +20,31 @@ custom_map("n", "<leader>gn", ":Gitsigns next_hunk<CR>")
 custom_map("n", "<leader>gp", ":Gitsigns prev_hunk<CR>")
 custom_map("n", "Y", "y$")
 
+-- Inactivate C-z
+custom_map("n", "C-z", "<nop>", {silent = true})
+custom_map("v", "C-z", "<nop>", {silent = true})    -- x(visual), s(select)
+custom_map("!", "C-z", "<nop>", {silent = true})    -- i(insert), c(command)
+
 -- Buffer
-custom_map("n", "<leader>j", ":bp<CR>", {noremap = true})
-custom_map("n", "<leader>k", ":bn<CR>", {noremap = true})
+custom_map("n", "<leader>h", ":bp<CR>", {noremap = true})
+custom_map("n", "<leader>l", ":bn<CR>", {noremap = true})
 custom_map("n", "C-p", ":bp<CR>", {noremap = true})
 custom_map("n", "C-n", ":bn<CR>", {noremap = true})
 custom_map("n", "<C-x>", ":bd<CR>", {noremap = true})
 
 --Tab
 custom_map("n", "T", ":tabnew<CR>", {noremap = true})
-custom_map("n", "[", ":tabprevious<CR>", {noremap = true})
-custom_map("n", "]", ":tabnext<CR>", {noremap = true})
+custom_map("n", "<leader>[", ":tabprevious<CR>", {noremap = true})
+custom_map("n", "<leader>]", ":tabnext<CR>", {noremap = true})
+
+--Terminal
+custom_map("t", "<Esc>", "<C-\\><C-n>:q!<CR>", {noremap = true})
 
 vim.api.nvim_exec([[
   cnoreabbrev W! w!
   cnoreabbrev Q! q!
+  cnoreabbrev q1 q!
+  cnoreabbrev Q1 q!
   cnoreabbrev Qall! qall!
   cnoreabbrev Wq wq
   cnoreabbrev Wa wa
