@@ -11,26 +11,31 @@ end
 -- Leader
 g.mapleader = " "
 
-custom_map("n", "<leader>gh", ":Gitsigns preview_hunk<CR>")
-custom_map("n", "<leader>gp", ":Gitsigns prev_hunk<CR>")
-custom_map("n", "<leader>gn", ":Gitsigns next_hunk<CR>")
-custom_map("n", "<leader><leader>", ":Explore<CR>")
-custom_map("n", "<leader>g", ":Gitsigns preview_hunk<CR>")
-custom_map("n", "<leader>gn", ":Gitsigns next_hunk<CR>")
-custom_map("n", "<leader>gp", ":Gitsigns prev_hunk<CR>")
+-- NvimTree
+custom_map("n", "<leader><leader>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
+
 custom_map("n", "Y", "y$")
 
 -- Inactivate C-z
-custom_map("n", "C-z", "<nop>", {silent = true})
-custom_map("v", "C-z", "<nop>", {silent = true})    -- x(visual), s(select)
-custom_map("!", "C-z", "<nop>", {silent = true})    -- i(insert), c(command)
+custom_map("n", "<C-Z>", "<nop>", {silent = true})
+custom_map("v", "<C-Z>", "<nop>", {silent = true})    -- x(visual), s(select)
+custom_map("!", "<C-Z>", "<nop>", {silent = true})    -- i(insert), c(command)
 
 -- Buffer
-custom_map("n", "<leader>h", ":bp<CR>", {noremap = true})
-custom_map("n", "<leader>l", ":bn<CR>", {noremap = true})
-custom_map("n", "C-p", ":bp<CR>", {noremap = true})
-custom_map("n", "C-n", ":bn<CR>", {noremap = true})
-custom_map("n", "<C-x>", ":bd<CR>", {noremap = true})
+custom_map("n", "<leader>h", ":bp<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>l", ":bn<CR>", {noremap = true, silent = true})
+custom_map("n", "<C-C>", ":bd<CR>", {noremap = true, silent = true})
+custom_map("n", "<C-H>", ":BufferLineMovePrev<CR>", {noremap = true, silent = true})
+custom_map("n", "<C-L>", ":BufferLineMoveNext<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>4", ":BufferLineGoToBuffer 4<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>5", ":BufferLineGoToBuffer 5<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>6", ":BufferLineGoToBuffer 6<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", {noremap = true, silent = true})
 
 --Tab
 custom_map("n", "T", ":tabnew<CR>", {noremap = true})
@@ -39,6 +44,7 @@ custom_map("n", "<leader>]", ":tabnext<CR>", {noremap = true})
 
 --Terminal
 custom_map("t", "<Esc>", "<C-\\><C-n>:q!<CR>", {noremap = true})
+
 
 vim.api.nvim_exec([[
   cnoreabbrev W! w!

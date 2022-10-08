@@ -1,3 +1,6 @@
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 local function getCurrentDir()
    local str = debug.getinfo(2, "S").source:sub(2)
    return str:match("(.*/)")

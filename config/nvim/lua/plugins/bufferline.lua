@@ -43,9 +43,17 @@ require"bufferline".setup {
       numbers = 'ordinal',
       style = 'underline',
     },
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "File Explorer",
+        text_align = "left",
+        separator = true,
+      },
+    },
     show_buffer_icons = false,
     show_buffer_close_icons = false,
     show_close_icon = false,
-    tab_size = 15
+    tab_size = 15,
   },
 }
