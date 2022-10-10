@@ -11,10 +11,10 @@ end
 -- Leader
 g.mapleader = " "
 
+custom_map("n", "Y", "y$")
+custom_map("n", "<Esc><ESC>", ":nohlsearch<CR>", {noremap = true, silent = true})
 -- NvimTree
 custom_map("n", "<leader><leader>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
-
-custom_map("n", "Y", "y$")
 
 -- Inactivate C-z
 custom_map("n", "<C-Z>", "<nop>", {silent = true})
@@ -25,6 +25,7 @@ custom_map("!", "<C-Z>", "<nop>", {silent = true})    -- i(insert), c(command)
 custom_map("n", "<leader>h", ":bp<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>l", ":bn<CR>", {noremap = true, silent = true})
 custom_map("n", "<C-C>", ":bd<CR>", {noremap = true, silent = true})
+
 custom_map("n", "<C-H>", ":BufferLineMovePrev<CR>", {noremap = true, silent = true})
 custom_map("n", "<C-L>", ":BufferLineMoveNext<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", {noremap = true, silent = true})
@@ -39,8 +40,8 @@ custom_map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", {noremap = true, sil
 
 --Tab
 custom_map("n", "T", ":tabnew<CR>", {noremap = true})
-custom_map("n", "<leader>[", ":tabprevious<CR>", {noremap = true})
-custom_map("n", "<leader>]", ":tabnext<CR>", {noremap = true})
+custom_map("n", "<S-Tab>", ":tabprevious<CR>", {noremap = true})
+custom_map("n", "<Tab>", ":tabnext<CR>", {noremap = true})
 
 --Terminal
 custom_map("t", "<Esc>", "<C-\\><C-n>:q!<CR>", {noremap = true})

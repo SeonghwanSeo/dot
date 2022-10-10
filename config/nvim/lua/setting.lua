@@ -1,13 +1,7 @@
--- File: /home/sergio/.config/nvim/lua/core/settings.lua
--- Last Change: Sun, 29 May 2022 13:51
-
 -- aliases
 local opt  = vim.opt -- global
-local g  = vim.g     -- global for let options
 local wo = vim.wo    -- window local
 local bo = vim.bo    -- buffer local
-local fn = vim.fn    -- access vim functions
-local cmd = vim.cmd  -- vim commands
 
 local options = {
     -- syntax = "ON",        -- str:  Allow syntax highlighting
@@ -23,8 +17,6 @@ local options = {
     clipboard = "unnamed",
     statusline = " %<%l:%v [%P]%=%a %F",
     laststatus = 2,
-    path = vim.opt.path + "~/.config/nvim/lua",
-    path = vim.opt.path + "**"
 }
 
 for k, v in pairs(options) do
