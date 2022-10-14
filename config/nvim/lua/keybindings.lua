@@ -22,8 +22,10 @@ custom_map("v", "<C-Z>", "<nop>", {silent = true})    -- x(visual), s(select)
 custom_map("!", "<C-Z>", "<nop>", {silent = true})    -- i(insert), c(command)
 
 -- Buffer
-custom_map("n", "<leader>h", ":bp<CR>", {noremap = true, silent = true})
-custom_map("n", "<leader>l", ":bn<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>h", ":BufferLineCyclePrev<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>l", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>be", ":BufferLineSortByExtension<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>bd", ":BufferLineSortByDirectory<CR>", {noremap = true, silent = true})
 custom_map("n", "<C-C>", ":bd<CR>", {noremap = true, silent = true})
 
 custom_map("n", "<C-H>", ":BufferLineMovePrev<CR>", {noremap = true, silent = true})
@@ -39,12 +41,15 @@ custom_map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", {noremap = true, sil
 custom_map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", {noremap = true, silent = true})
 
 --Tab
-custom_map("n", "T", ":tabnew<CR>", {noremap = true})
-custom_map("n", "<S-Tab>", ":tabprevious<CR>", {noremap = true})
-custom_map("n", "<Tab>", ":tabnext<CR>", {noremap = true})
+custom_map("n", "<leader>T", ":tabnew<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader><S-Tab>", ":tabprevious<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader><Tab>", ":tabnext<CR>", {noremap = true, silent = true})
 
 --Terminal
-custom_map("t", "<Esc>", "<C-\\><C-n>:q!<CR>", {noremap = true})
+custom_map("n", "<leader><C-T>", ":terminal<CR>", {noremap = true})
+custom_map("t", "<Esc>", "<C-\\><C-n><CR>", {noremap = true, silent = true})
+custom_map("t", "<C-W>", "<C-\\><C-n><C-W>", {noremap = true, silent = true})
+custom_map("t", "<C-Q>", "<C-\\><C-n>:bd!<CR>", {noremap = true, silent = true})
 
 
 vim.api.nvim_exec([[
