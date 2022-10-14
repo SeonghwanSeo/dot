@@ -3,6 +3,7 @@ export TERM=xterm-256color
 
 alias shome='cd $WORK_DIR'
 
+alias ls='ls --color'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
