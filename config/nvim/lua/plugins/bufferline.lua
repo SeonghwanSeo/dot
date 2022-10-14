@@ -2,7 +2,7 @@ vim.opt.termguicolors = true
 require"bufferline".setup {
   highlights = {
     fill = {
-      bg = "#24283b",
+      bg = "#1a1b26",
     },
     background = {
       fg = "#c0caf5",
