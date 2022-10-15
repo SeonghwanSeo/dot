@@ -26,7 +26,7 @@ custom_map("n", "<leader>h", ":BufferLineCyclePrev<CR>", {noremap = true, silent
 custom_map("n", "<leader>l", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>be", ":BufferLineSortByExtension<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>bd", ":BufferLineSortByDirectory<CR>", {noremap = true, silent = true})
-custom_map("n", "<C-C>", ":bd<CR>", {noremap = true, silent = true})
+custom_map("n", "<C-C>", ":bprevious <bar> bdelete #<CR>", {noremap = true, silent = true})
 
 custom_map("n", "<C-H>", ":BufferLineMovePrev<CR>", {noremap = true, silent = true})
 custom_map("n", "<C-L>", ":BufferLineMoveNext<CR>", {noremap = true, silent = true})
