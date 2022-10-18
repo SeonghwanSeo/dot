@@ -1,6 +1,7 @@
 local api = vim.api
 local cmd = vim.cmd
 local g   = vim.g
+require("utils")
 
 function _G.custom_map(mode, lhs, rhs, opts)
   local options = {noremap = true}
@@ -26,7 +27,8 @@ custom_map("n", "<leader>h", ":BufferLineCyclePrev<CR>", {noremap = true, silent
 custom_map("n", "<leader>l", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>be", ":BufferLineSortByExtension<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>bd", ":BufferLineSortByDirectory<CR>", {noremap = true, silent = true})
-custom_map("n", "<C-C>", ":bprevious <bar> bdelete #<CR>", {noremap = true, silent = true})
+custom_map("n", "<C-C>", ":lua require('utils').bufferclose()<CR>", {noremap=true, silent=true})
+
 
 custom_map("n", "<C-H>", ":BufferLineMovePrev<CR>", {noremap = true, silent = true})
 custom_map("n", "<C-L>", ":BufferLineMoveNext<CR>", {noremap = true, silent = true})
@@ -49,7 +51,8 @@ custom_map("n", "<leader><Tab>", ":tabnext<CR>", {noremap = true, silent = true}
 custom_map("n", "<leader><C-T>", ":terminal<CR>", {noremap = true})
 custom_map("t", "<Esc>", "<C-\\><C-n><CR>", {noremap = true, silent = true})
 custom_map("t", "<C-W>", "<C-\\><C-n><C-W>", {noremap = true, silent = true})
-custom_map("t", "<C-Q>", "<C-\\><C-n>:bd!<CR>", {noremap = true, silent = true})
+custom_map("t", "<C-Q>", "<C-\\><C-n>:lua require('utils')terminalclose.<CR>", {noremap = true, silent = true})
+custom_map("n", "<C-Q>", ":lua require('utils').bufferclose()<CR>", {noremap=true, silent=true})
 
 
 vim.api.nvim_exec([[
