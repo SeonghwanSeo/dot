@@ -2,6 +2,7 @@ vim.opt.termguicolors = true
 require"bufferline".setup {
   highlights = {
     fill = {
+      -- fg = "#1a1b26",
       bg = "#1a1b26",
     },
     background = {
@@ -10,6 +11,9 @@ require"bufferline".setup {
     },
     separator = {
       fg = "#1a1b26",
+      bg = "#1a1b26",
+    },
+    modified = {
       bg = "#1a1b26",
     },
     buffer_visible = {
@@ -28,13 +32,14 @@ require"bufferline".setup {
       fg = "#f7768e",
       bg = "#1a1b26",
     },
+    numbers = {
+      bg = "#1a1b26",
+    },
     numbers_selected = {
       fg = "#f7768e",
+      bg = "#1a1b26",
       bold = true,
       italic = true,
-    },
-    indicator_selected = {
-      fg = "#f7768e",
     },
   },
   options = {
