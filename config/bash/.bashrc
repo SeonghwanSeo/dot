@@ -16,8 +16,9 @@ alias cls='clear && echo -en "\e[3J"'
 alias bashrc_cfg='vi $CONFIG_DIR/bash/.bashrc'
 
 #tmux
-alias tmuxs='tmux new -s shwan'
-alias tmuxn='tmux new -s '
+alias tmux='TERM=xterm-256color tmux'
+alias tmuxs='tmux -u new -s shwan'
+alias tn='tmux -u new -s '
 alias tas='tmux attach -t shwan'
 alias ta='tmux attach -t'
 

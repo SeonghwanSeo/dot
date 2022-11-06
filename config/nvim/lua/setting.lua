@@ -5,6 +5,7 @@ local bo = vim.bo    -- buffer local
 
 local options = {
     -- syntax = "ON",        -- str:  Allow syntax highlighting
+    mouse = '', 
     showmatch = true,
     wildmode = "longest:full,full",
     shiftround = true, -- Round indent

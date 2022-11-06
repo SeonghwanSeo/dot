@@ -43,7 +43,7 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities, {snippetSupport = false})
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities, {snippetSupport = false})
 
 -- Lua LSP setting
 local system_name
