@@ -1,6 +1,6 @@
 local M = {}
 
-function terminalclose ()
+function terminalclose()
   vim.ui.input({prompt = 'Do you want to close terminal? y/n: '}, 
     function(choice)
       if choice == 'y' then
@@ -14,9 +14,14 @@ function terminalclose ()
     end)
 end
 
-M.terminalclose = terminalclose
+function safe_terminalclose()
+  local buffer = vim.api.nvim_get_current_buf()
+  if vim.api.nvim_buf_get_option(buffer, 'buftype') == 'terminal' then
+    terminalclose()
+  end
+end
 
-M.bufferclose = function()
+function bufferclose()
   local buffer = vim.api.nvim_get_current_buf()
   if not vim.api.nvim_buf_get_option(buffer, 'modified') then
     -- vim.api.nvim_command('if &buftype != "terminal" | bp | bd # | endif')
@@ -28,5 +33,9 @@ M.bufferclose = function()
   else 
   end
 end
+
+M.terminalclose = terminalclose
+M.safe_terminalclose = safe_terminalclose
+M.bufferclose = bufferclose
 
 return M

@@ -53,6 +53,7 @@ custom_map("n", "<leader>t", ":terminal<CR>", {noremap = true})
 custom_map("t", "<C-X>", "<C-\\><C-n>", {noremap = true, silent = true})
 custom_map("t", "<C-W>", "<C-\\><C-n><C-W>", {noremap = true, silent = true})
 custom_map("t", "<C-Q>", "<C-\\><C-n>:lua require('utils').terminalclose()<CR>", {noremap = true, silent = true})
+custom_map("n", "<C-Q>", ":lua require('utils').safe_terminalclose()<CR>", {noremap = true, silent = true})
 
 
 vim.api.nvim_exec([[
