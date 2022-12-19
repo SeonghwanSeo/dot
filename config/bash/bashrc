@@ -1,6 +1,10 @@
 # .bashrc
 export TERM=xterm-256color
 
+export MACOSX_DEPLOYMENT_TARGET=10.9
+export CC=clang
+export CXX=clang++ 
+
 alias shome='cd $WORK_DIR'
 
 alias ls='ls --color'
@@ -42,24 +46,8 @@ if { [ "$SHELLTYPE" = 'BASH' ]; } then
 fi
 source $CONFIG_DIR/git/git-prompt.sh
 
-# PS1
-#PS1_BASH='\e[0;32m\]\u@\h: \e[0;36m\]\w\e[0;35m\]$(__git_ps1)\n\e[2;32;47m\]\$\e[m\] '
-PS1_BASH='\
-\[\e[0;32m\]\u@\h: \
-\[\e[0;36m\]\w\
-\e[0;35m\]$(__git_ps1)
-\[\e[2;32;47m\]\$\[\e[m\] '
-
-PS1_ZSH='\
-%{$fg[green]%}%n@%m: \
-%{$fg[cyan]%}%~\
-%{$fg[magenta]%}$(__git_ps1)
-%{$fg[green]%}%{$bg[white]%}$%{$reset_color%} ' 
-
-# /u@/h: dir (git)
 if { [ "$SHELLTYPE" = 'BASH' ]; } then
-    export PS1=$PS1_BASH
-    #export PS1='\e[0;32m\]\u@\h: \e[0;36m\]\w\e[0;35m\]$(__git_ps1) \e[0;m\][\t] \n\e[2;32;47m\]\$\e[m\] '
+    source $CONFIG_DIR/bash/ps1_bash.sh
 else
-    export PS1=$PS1_ZSH
+    source $CONFIG_DIR/bash/ps1_zsh.sh
 fi
