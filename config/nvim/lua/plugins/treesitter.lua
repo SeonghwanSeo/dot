@@ -1,7 +1,8 @@
 require "nvim-treesitter.install".compilers = { "gcc" }  -- if cc version is too low
 
 require "nvim-treesitter.configs".setup {
-  ensure_installed = "python", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"python", "lua", "help"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = true,
   highlight = {
     enable = true,              -- false will disable the whole extension
     additional_vim_regex_highlighting = true,

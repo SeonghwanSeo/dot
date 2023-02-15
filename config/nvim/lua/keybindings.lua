@@ -16,6 +16,7 @@ custom_map("n", "Y", "y$")
 custom_map("n", "<Esc><ESC>", ":nohlsearch<CR>", {noremap = true, silent = true})
 -- NvimTree
 custom_map("n", "<leader><leader>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
+custom_map("n", "<leader>0", ":NvimTreeFocus<CR>", {noremap = true, silent = true})
 
 -- Inactivate C-z
 custom_map("n", "<C-Z>", "<nop>", {silent = true})

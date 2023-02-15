@@ -56,13 +56,13 @@ packer.startup(function()
     "nvim-telescope/telescope.nvim",
     requires = {"nvim-lua/plenary.nvim"}
   }
-  -- use {"glepnir/dashboard-nvim"}
+  use {"glepnir/dashboard-nvim"}
   use {"sbdchd/neoformat"} -- Autoformat the code
 
   use {"windwp/nvim-autopairs"} -- Autopairing parentheses, quotes
 
-  -- Colorscheme
-  -- use {"sainnhe/gruvbox-material"}
+ --Colorscheme
+  use {"sainnhe/gruvbox-material"}
   use {"folke/tokyonight.nvim"}
 
   use {"RRethy/vim-illuminate"} -- Highlight the words on the cursor
