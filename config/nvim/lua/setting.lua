@@ -3,10 +3,13 @@ local opt  = vim.opt -- global
 local wo = vim.wo    -- window local
 local bo = vim.bo    -- buffer local
 
+vim.g.rooter_pattern = {'.git'} 
+--vim.g.outermost_root = true
+
 local options = {
     -- syntax = "ON",        -- str:  Allow syntax highlighting
     mouse = '', 
-    showmatch = true,
+    showmatch = true,   -- show (), {}, []
     wildmode = "longest:full,full",
     shiftround = true, -- Round indent
     shiftwidth = 4, -- Size of an indent
@@ -15,7 +18,7 @@ local options = {
     autoindent = true, -- Insert indents automatically
     tabstop = 4, -- Number of spaces tabs count for
     ruler = true,
-    clipboard = "unnamed",
+    clipboard = "unnamed,unnamedplus",
     statusline = " %<%l:%v [%P]%=%a %F",
     laststatus = 2,
 }
@@ -28,6 +31,7 @@ end
 window_options = {
     -- numberwidth = 2,
     number = true,
+    relativenumber = true,
     linebreak = true,
     cursorline = true,
 }
@@ -43,7 +47,7 @@ buffer_options = {
     tabstop = 4,
     shiftwidth = 4,
     smartindent = true,
-    suffixesadd = '.lua'
+    suffixesadd = '.lua',
 }
 
 for k, v in pairs(buffer_options) do

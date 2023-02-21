@@ -1,19 +1,16 @@
 -- Dashboard
-vim.g.dashboard_default_executive = "telescope"
-vim.g.dashboard_custom_section = {
-  b = {description = {"  Recents                  <Space> f h"}, command="Telescope oldfiles"},
-  a = {description = {"  Find File                <Space> f f"}, command="Telescope find_files"},
-  c = {description = {"  Find Word                <Space> f w"}, command="Telescope live_grep"},
-  d = {description = {"  New File                 <Space> n f"}, command="DashboardNewFile"},
-  e = {description = {"  Change ColorScheme       <Space> c c"}, command="DashboardChangeColorscheme"},
-  g = {description = {"  Update Plugins           <Space> u  "}, command="PackerUpdate"},
-  i = {description = {"  Exit                     <Space> q  "}, command="exit"},
+require('dashboard').setup {
+  theme = 'hyper',
+  config = {
+    shortcut = {
+      -- action can be a function type
+      { desc = " Recents", group = 'Telescope', key = 'r', action = 'Telescope oldfiles'},
+      { desc = " Find File", group = 'Telescope', key = 'f', action = 'Telescope find_files'},
+      { desc = " Find Word", group = 'Telescope', key = 'w', action = 'Telescope live_grep'},
+      { desc = " New File", group = 'Default', key = 'n', action = 'DashboardNewFile'},
+      { desc = " Update Plugins", group = 'Default', key = 'u', action = 'PackerUpdate'},
+      { desc = " Exit", group = 'Default', key = 'q', action = 'exit'},
+    },
+    packages = { enable = true }, -- show how many plugins neovim loaded
+  } 
 }
-
-custom_map("n", "<leader>fh", ":Telescope oldfiles<CR>", {silent = true, noremap=true})
-custom_map("n", "<leader>ff", ":Telescope find_files<CR>", {silent = true, noremap=true})
-custom_map("n", "<leader>fw", ":Telescope live_grep<CR>", {silent = true, noremap=true})
-custom_map("n", "<leader>nf", ":DashboardNewFile<CR>", {silent = true, noremap=true})
-custom_map("n", "<leader>cc", ":DashboardChangeColorscheme<CR>", {silent = true, noremap=true})
-custom_map("n", "<leader>u", ":PackerUpdate<CR>", {silent = true, noremap=true})
-custom_map("n", "<leader>q", ":exit<CR>", {silent = true, noremap=true})

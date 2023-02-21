@@ -23,6 +23,9 @@ custom_map("n", "<C-Z>", "<nop>", {silent = true})
 custom_map("v", "<C-Z>", "<nop>", {silent = true})    -- x(visual), s(select)
 custom_map("!", "<C-Z>", "<nop>", {silent = true})    -- i(insert), c(command)
 
+-- Inactivate Shift-K
+custom_map("n", "K", "<nop>", {silent = true})
+
 -- Buffer
 custom_map("n", "<leader>h", ":BufferLineCyclePrev<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>l", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
@@ -43,19 +46,19 @@ custom_map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", {noremap = true, sil
 custom_map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", {noremap = true, silent = true})
 
---Tab
-custom_map("n", "<leader>T", ":tabnew<CR>", {noremap = true, silent = true})
-custom_map("n", "<leader><S-Tab>", ":tabprevious<CR>", {noremap = true, silent = true})
-custom_map("n", "<leader><Tab>", ":tabnext<CR>", {noremap = true, silent = true})
-
 --Terminal
 custom_map("n", "<leader>t", ":terminal<CR>", {noremap = true})
+
 -- custom_map("t", "<Esc>", "<C-\\><C-n><CR>", {noremap = true, silent = true})
 custom_map("t", "<C-X>", "<C-\\><C-n>", {noremap = true, silent = true})
 custom_map("t", "<C-W>", "<C-\\><C-n><C-W>", {noremap = true, silent = true})
 custom_map("t", "<C-Q>", "<C-\\><C-n>:lua require('utils').terminalclose()<CR>", {noremap = true, silent = true})
 custom_map("n", "<C-Q>", ":lua require('utils').safe_terminalclose()<CR>", {noremap = true, silent = true})
 
+-- Telescope
+custom_map("n", "<leader>fh", ":Telescope oldfiles<CR>", {silent = true, noremap=true})
+custom_map("n", "<leader>ff", ":Telescope find_files<CR>", {silent = true, noremap=true})
+custom_map("n", "<leader>fw", ":Telescope live_grep<CR>", {silent = true, noremap=true})
 
 vim.api.nvim_exec([[
   cnoreabbrev W! w!
@@ -88,7 +91,7 @@ opt("b", "shiftwidth", indent)
 opt("o", "hidden", true)
 opt("o", "laststatus", 2)
 opt("o", "clipboard","unnamed,unnamedplus")
-g.shada = "$XDG_DATA_HOME/nvim/shada/main.shada"
+--g.shada = "$XDG_DATA_HOME/nvim/shada/main.shada"
 
 local signcolumn = true
 function _G.SignColumnToggle()

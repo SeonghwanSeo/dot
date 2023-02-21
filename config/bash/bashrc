@@ -9,11 +9,32 @@ alias shome='cd $WORK_DIR'
 
 alias ls='ls --color'
 alias mv='mv -i'
-alias rm='rm -i'
+alias rmf='/bin/rm -i'
 alias cp='cp -i'
 function cd() { builtin cd $1 && ls; }
 
-alias vi='nvim -u $CONFIG_DIR/nvim/init.lua'
+function rm() {
+    basename=${1:t} # file name without extension
+    if [ -e "$WORK_DIR/.Trash/$basename" ]; then
+        echo "File exists; $1 needs to be renamed.."
+        i=1                 # initialize the counter
+        shortname=${basename%.*} # file name without extension
+        ext=${basename##*.}     # the file extension
+        while [ -e "$WORK_DIR/.Trash/${shortname}_${basename}.${ext}" ]
+        do
+            ((i++))
+        done
+
+        mv $1 $WORK_DIR/.Trash/${shortname}_${i}.${ext}
+        echo Move $1 to $WORK_DIR/.Trash/${shortname}_${i}.${ext}
+    else
+        mv $1 $WORK_DIR/.Trash/
+        echo Move $1 to $WORK_DIR/.Trash/${basename}
+    fi
+}
+
+alias nvim='nvim -u $CONFIG_DIR/nvim/init.lua'
+alias vi='nvim'
 alias vir='vi -R'
 alias cls='clear && echo -en "\e[3J"'
 

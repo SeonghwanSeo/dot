@@ -33,8 +33,9 @@ for _, plugin in pairs(disabled_built_ins) do
   vim.g["loaded_" .. plugin] = 1
 end
 
-require("keybindings")
 require("autocmds")
+require("keybindings")
+require("plugin_setup")
 require("setting")
 
 local function directory_exist(dir_path)
