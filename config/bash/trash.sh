@@ -7,6 +7,10 @@ function trash() {
     mkdir -p $TRASHCAN/.metadata
     datetime=$(date '+%Y%m%d-%H-%M-%S')
     for filepath in "$@"; do
+        if [ ! -e ${filepath} ]; then
+            echo "$filepath is not exists"
+            continue
+        fi
         basename=$( basename -- $filepath )
         abspath=$(realpath -- "$filepath")
         dirname=$( dirname -- $( realpath -- $filepath) )
