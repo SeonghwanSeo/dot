@@ -6,24 +6,43 @@ function trash() {
     mkdir -p $TRASHCAN
     mkdir -p $TRASHCAN/.metadata
     datetime=$(date '+%Y%m%d-%H-%M-%S')
+    while getopts 'f' OPTION; do
+        command="${command}-$OPTION "
+    done
+    shift $(($OPTIND -1))
     for filepath in "$@"; do
         if [ ! -e ${filepath} ]; then
             echo "$filepath is not exists"
             continue
         fi
         basename=$( basename -- $filepath )
-        abspath=$(realpath -- "$filepath")
-        dirname=$( dirname -- $( realpath -- $filepath) )
+        abspath=$( realpath -- $filepath )
+        dirname=$( dirname -- $( realpath -- $filepath ) )
         if [ "$dirname" = "$TRASHCAN_ABS" ]; then
             echo "Ignore File in Trash Can: ${filepath}"
             continue
         fi
-        newfilepath=$TRASHCAN/${datetime}_${basename}
-        metadatapath=$TRASHCAN/.metadata/${datetime}_${basename}
+        i=0
+        local newname=${datetime}_${i}_${basename}
+        local newfilepath=$TRASHCAN/${newname}
+        while [ -e $newfilepath ]; do
+            i=$((i+1))
+            newname=${datetime}_${i}_${basename}
+            newfilepath=$TRASHCAN/${newname}
+        done
+        metadatapath=$TRASHCAN/.metadata/${newname}
 
+        if [[ $OPTION != 'f' ]]; then
+            echo -n "Do you want to remove ${filepath}? [y|n]: "
+            read _answer
+
+            if [[ $_answer != 'y' ]]; then
+                continue
+            fi
+        fi
         echo "Move $filepath to $newfilepath"
-        echo $abspath > ${metadatapath}
         mv $filepath $newfilepath
+        echo $abspath > ${metadatapath}
     done
 }
 function restore() {
@@ -74,14 +93,14 @@ function trashview() {
     printf '%.s*' $(seq 1 $(tput cols))
     numfiles=$( ls -a $TRASHCAN | wc -l )
     echo "Trash Can   $(($numfiles -3)) Files"
-    echo "DATE        TIME        NAME"
+    echo "DATE        TIME        PATH"
     for filepath in $TRASHCAN/*; do
         basename=$( basename -- $filepath )
         if [ $basename = '.metadata' ]; then
             continue
         fi
-        echo "${basename:0:4}-${basename:4:2}-${basename:6:2}  ${basename:9:2}:${basename:12:2}:${basename:15:2}    ${basename:18}"
-        #echo "${filepath:0:17}\t${filepath:18:}"
+        abspath=$( cat ${TRASHCAN}/.metadata/$basename )
+        echo "${basename:0:4}-${basename:4:2}-${basename:6:2}  ${basename:9:2}:${basename:12:2}:${basename:15:2}    ${abspath} <- $filepath"
     done
     printf '%.s*' $(seq 1 $(tput cols))
 }

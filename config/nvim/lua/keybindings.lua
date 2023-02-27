@@ -108,9 +108,11 @@ local nu = true
 function _G.NumberToggle()
   if nu then
     vim.api.nvim_command("set nonumber")
+    vim.api.nvim_command("set norelativenumber")
     nu = false
   else
     vim.api.nvim_command("set number")
+    vim.api.nvim_command("set relativenumber")
     nu = true
   end
 end
