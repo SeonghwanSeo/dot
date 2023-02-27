@@ -10,3 +10,5 @@ pip install torch-geometric
 pip install numpy pandas scikit-learn omegaconf
 pip install rdkit-pypi biopython
 mamba install openbabel
+
+pip install pyright python-lsp-server

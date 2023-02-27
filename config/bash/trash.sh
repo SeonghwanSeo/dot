@@ -113,8 +113,7 @@ function trashempty() {
     if [[ $_answer == 'y' ]]; then
         /bin/rm -rf $TRASHCAN/[^.metadata]*
         /bin/rm -rf $TRASHCAN/.metadata/*
-    elif [[ $_answer == 'n' ]]; then
-    else
+    elif [[ $_answer != 'n' ]]; then
         echo "Please answer 'y' for yes, or 'n' for no."
     fi
 }
