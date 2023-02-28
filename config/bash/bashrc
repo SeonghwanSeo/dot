@@ -1,16 +1,22 @@
 # .bashrc
+if { [ "$SHELLTYPE" = 'BASH' ]; } then
+    source $CONFIG_DIR/git/git-completion.bash
+    source $CONFIG_DIR/git/git-prompt.sh
+    source $CONFIG_DIR/bash/ps1.bash
+    source $CONFIG_DIR/bash/trash.bash
+else
+    export MACOSX_DEPLOYMENT_TARGET=10.9
+    export CC=clang
+    export CXX=clang++ 
+    source $CONFIG_DIR/git/git-prompt.sh
+    source $CONFIG_DIR/bash/ps1.zsh
+    source $CONFIG_DIR/bash/trash.zsh
+fi
+
 export TERM=xterm-256color
-
-export MACOSX_DEPLOYMENT_TARGET=10.9
-export CC=clang
-export CXX=clang++ 
-
 alias shome='cd $WORK_DIR'
-
-source $CONFIG_DIR/bash/trash.sh
 alias ls='ls --color'
 alias mv='mv -i'
-alias rmf='/bin/rm -i'
 alias cp='cp -i'
 function cd() { builtin cd $1 && ls; }
 alias rm='trash'
@@ -44,13 +50,3 @@ alias gal='git add .'
 alias gcm='git commit -m '
 alias gr='git restore --staged'
 
-if { [ "$SHELLTYPE" = 'BASH' ]; } then
-    source $CONFIG_DIR/git/git-completion.bash
-fi
-source $CONFIG_DIR/git/git-prompt.sh
-
-if { [ "$SHELLTYPE" = 'BASH' ]; } then
-    source $CONFIG_DIR/bash/ps1_bash.sh
-else
-    source $CONFIG_DIR/bash/ps1_zsh.sh
-fi

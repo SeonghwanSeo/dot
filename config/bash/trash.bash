@@ -1,15 +1,20 @@
 #!/bin/bash
 export TRASHCAN=$WORK_DIR/.Trash
 TRASHCAN_ABS=$( realpath -- $TRASHCAN )
+alias trashcan='cd $TRASHCAN'
 
 function trash() {
     mkdir -p $TRASHCAN
     mkdir -p $TRASHCAN/.metadata
     datetime=$(date '+%Y%m%d-%H-%M-%S')
-    while getopts 'f' OPTION; do
-        command="${command}-$OPTION "
-    done
-    shift $(($OPTIND -1))
+    f=false
+    if [[ $1 = '-f' ]]; then 
+        f=true
+        shift
+    elif [[ $1 = '-rf' ]]; then 
+        f=true
+        shift
+    fi
     for filepath in "$@"; do
         if [ ! -e ${filepath} ]; then
             echo "$filepath is not exists"
@@ -17,8 +22,7 @@ function trash() {
         fi
         basename=$( basename -- $filepath )
         abspath=$( realpath -- $filepath )
-        dirname=$( dirname -- $( realpath -- $filepath ) )
-        if [ "$dirname" = "$TRASHCAN_ABS" ]; then
+        if [[ $abspath == ${TRASHCAN_ABS}* ]]; then
             echo "Ignore File in Trash Can: ${filepath}"
             continue
         fi
@@ -32,7 +36,7 @@ function trash() {
         done
         metadatapath=$TRASHCAN/.metadata/${newname}
 
-        if [[ $OPTION != 'f' ]]; then
+        if ! $f ; then
             echo -n "Do you want to remove ${filepath}? [y|n]: "
             read _answer
 
@@ -45,7 +49,7 @@ function trash() {
         echo $abspath > ${metadatapath}
     done
 }
-function restore() {
+function trashrestore() {
     for filepath in "$@"; do
         basename=$( basename -- $filepath )
         metadatapath=$TRASHCAN/.metadata/${basename}
@@ -65,20 +69,26 @@ function trashcheck() {
         echo "$basename -> $abspath"
     done
 }
-function trashremove() {
+function trashrm() {
     command='/bin/rm -i '
-    while getopts 'rf' OPTION; do
-        command="${command}-$OPTION "
+    while :
+        do
+            if [[ $1 == -* ]]; then
+                command="$command $1"
+                shift
+            else
+                break
+            fi
     done
-    shift $(($OPTIND -1))
     for filepath in "$@"; do
         basename=$( basename -- $filepath )
-        dirname=$( dirname -- $( realpath -- $filepath) )
-
-        if [ "$dirname" != "$TRASHCAN_ABS" ]; then
+        abspath=$( realpath -- $filepath )
+        if [[ $abspath != ${TRASHCAN_ABS} ]]; then
             echo "Ignore File not in Trash Can: ${filepath}"
+        elif [ $abspath = $TRASHCAN_ABS ]; then
+            echo "Ignore Trash Can: ${filepath}"
         elif [ $basename = '.metadata' ]; then
-            echo "Ignore Metadata Path: ${filepath}"
+            echo "Ignore Trash Metadata: ${filepath}"
         else
             metadatapath=$TRASHCAN/.metadata/${basename}
 
@@ -107,7 +117,8 @@ function trashview() {
 function trashempty() {
     local _answer=''
     trashview
-    echo -n "\nDo you want to remove all files? [y|n]: "
+    echo ''
+    echo -n "Do you want to remove all files? [y|n]: "
     read _answer
 
     if [[ $_answer == 'y' ]]; then
