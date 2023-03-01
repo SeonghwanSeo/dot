@@ -25,17 +25,18 @@ custom_map("!", "<C-Z>", "<nop>", {silent = true})    -- i(insert), c(command)
 
 -- Inactivate Shift-K
 custom_map("n", "K", "<nop>", {silent = true})
+custom_map("v", "K", "<nop>", {silent = true})
 
--- Buffer
+-- BufferLine
 custom_map("n", "<leader>h", ":BufferLineCyclePrev<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>l", ":BufferLineCycleNext<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>be", ":BufferLineSortByExtension<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>bd", ":BufferLineSortByDirectory<CR>", {noremap = true, silent = true})
-custom_map("n", "<C-C>", ":lua require('utils').bufferclose()<CR>", {noremap=true, silent=true})
-
 
 custom_map("n", "<C-H>", ":BufferLineMovePrev<CR>", {noremap = true, silent = true})
 custom_map("n", "<C-L>", ":BufferLineMoveNext<CR>", {noremap = true, silent = true})
+custom_map("n", "<C-C>", ":lua require('utils').bufferclose()<CR>", {noremap=true, silent=true})
+
 custom_map("n", "<leader>1", ":BufferLineGoToBuffer 1<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>2", ":BufferLineGoToBuffer 2<CR>", {noremap = true, silent = true})
 custom_map("n", "<leader>3", ":BufferLineGoToBuffer 3<CR>", {noremap = true, silent = true})
@@ -93,33 +94,45 @@ opt("o", "laststatus", 2)
 opt("o", "clipboard","unnamed,unnamedplus")
 --g.shada = "$XDG_DATA_HOME/nvim/shada/main.shada"
 
-local signcolumn = true
+local signcolumn_tog = true
 function _G.SignColumnToggle()
-  if signcolumn then
+  if signcolumn_tog then
     vim.api.nvim_command("set scl=no")
-    signcolumn = false
+    signcolumn_tog = false
   else
     vim.api.nvim_command("set scl=yes")
-    signcolumn = true
+    signcolumn_tog = true
   end
 end
 
-local nu = true
+local nu_tog = true
 function _G.NumberToggle()
-  if nu then
+  if nu_tog then
     vim.api.nvim_command("set nonumber")
     vim.api.nvim_command("set norelativenumber")
-    nu = false
+    nu_tog = false
   else
     vim.api.nvim_command("set number")
     vim.api.nvim_command("set relativenumber")
-    nu = true
+    nu_tog = true
+  end
+end
+
+local cmp_tog = true
+function _G.CmpToggle()
+  if cmp_tog then
+    vim.diagnostic.hide()
+    cmp_tog = false
+  else
+    vim.diagnostic.show()
+    cmp_tog = true
   end
 end
 
 function _G.copy_mode()
   vim.api.nvim_command("Gitsigns toggle_signs")
   vim.api.nvim_command("IndentBlanklineToggle")
+  CmpToggle()
   NumberToggle()
   SignColumnToggle()
 end
