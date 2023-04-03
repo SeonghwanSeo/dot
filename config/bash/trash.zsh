@@ -1,5 +1,6 @@
 #!/bin/bash
 TRASH_DIR_ABS=$( realpath -- $TRASH_DIR )
+alias trashcan='cd $TRASH_DIR_ABS'
 
 function trash() {
     mkdir -p $TRASH_DIR
