@@ -118,21 +118,9 @@ function _G.NumberToggle()
   end
 end
 
-local cmp_tog = true
-function _G.CmpToggle()
-  if cmp_tog then
-    vim.diagnostic.hide()
-    cmp_tog = false
-  else
-    vim.diagnostic.show()
-    cmp_tog = true
-  end
-end
-
 function _G.copy_mode()
   vim.api.nvim_command("Gitsigns toggle_signs")
   vim.api.nvim_command("IndentBlanklineToggle")
-  CmpToggle()
   NumberToggle()
   SignColumnToggle()
 end
