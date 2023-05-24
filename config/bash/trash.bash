@@ -111,6 +111,7 @@ function trashview() {
         abspath=$( cat ${TRASH_DIR}/.metadata/$basename )
         echo "${basename:0:4}-${basename:4:2}-${basename:6:2}  ${basename:9:2}:${basename:12:2}:${basename:15:2}    ${abspath} <- $filepath"
     done
+    du -sh ${TRASH_DIR_ABS}
     printf '%.s*' $(seq 1 $(tput cols))
 }
 function trashempty() {

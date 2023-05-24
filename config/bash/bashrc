@@ -21,7 +21,7 @@ alias cp='cp -i'
 function cd() { builtin cd $1 && ls; }
 alias rm='trash'
 
-alias nvim='nvim -u $CONFIG_DIR/nvim/init.lua'
+alias nvim='nvim'
 alias vi='nvim'
 alias vir='vi -R'
 alias cls='clear && echo -en "\e[3J"'

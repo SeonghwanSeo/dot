@@ -1,14 +1,10 @@
 -- aliases
-local opt  = vim.opt -- global
-local wo = vim.wo    -- window local
-local bo = vim.bo    -- buffer local
-
-vim.g.rooter_pattern = {'.git'} 
+vim.g.rooter_pattern = {'.git'}
 --vim.g.outermost_root = true
 
 local options = {
     -- syntax = "ON",        -- str:  Allow syntax highlighting
-    mouse = '', 
+    mouse = '',
     showmatch = true,   -- show (), {}, []
     wildmode = "longest:full,full",
     shiftround = true, -- Round indent
@@ -19,7 +15,8 @@ local options = {
     tabstop = 4, -- Number of spaces tabs count for
     ruler = true,
     clipboard = "unnamed,unnamedplus",
-    statusline = " %<%l:%v [%P]%=%a %F",
+  --statusline = " %<%l:%v [%P]%=%a %F",
+    hidden = true,
     laststatus = 2,
 }
 
@@ -28,7 +25,7 @@ for k, v in pairs(options) do
 end
 --
 -- window-local options
-window_options = {
+local window_options = {
     -- numberwidth = 2,
     number = true,
     relativenumber = true,
@@ -41,7 +38,7 @@ for k, v in pairs(window_options) do
 end
 
 -- buffer-local options
-buffer_options = {
+local buffer_options = {
     expandtab = true,
     softtabstop = 4,
     tabstop = 4,
@@ -53,3 +50,4 @@ buffer_options = {
 for k, v in pairs(buffer_options) do
     vim.bo[k] = v
 end
+
