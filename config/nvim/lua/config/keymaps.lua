@@ -13,6 +13,8 @@ g.mapleader = " "
 
 custom_map("n", "Y", "y$")
 custom_map("n", "<Esc><ESC>", ":nohlsearch<CR>", {noremap = true, silent = true})
+custom_map("i", "<A-j>", "<Esc>j", {noremap = false, silent = true})
+custom_map("i", "<A-k>", "<Esc>k", {noremap = false, silent = true})
 custom_map("n", "<A-j>", "<Esc>j", {noremap = false, silent = true})
 custom_map("n", "<A-k>", "<Esc>k", {noremap = false, silent = true})
 custom_map("v", "<A-j>", "<Esc>j", {noremap = false, silent = true})

@@ -4,6 +4,7 @@ return {"neovim/nvim-lspconfig",
     autoformat = false,
     servers = {
       pylsp = {
+        root_dir = Util.get_root,
         settings = {
           pylsp = {
             plugins = {

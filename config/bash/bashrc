@@ -28,6 +28,15 @@ alias cls='clear && echo -en "\e[3J"'
 
 alias bashrc_cfg='vi $CONFIG_DIR/bash/.bashrc'
 
+# git
+alias gs='git status'
+alias gl='git pull'
+alias gp='git push'
+alias ga='git add'
+alias gal='git add .'
+alias gcm='git commit -m '
+alias gr='git restore --staged'
+
 #tmux
 alias tmux='TERM=xterm-256color tmux'
 alias tmuxs='tmux -u new -s shwan'
@@ -40,13 +49,4 @@ if { [ -n "$TMUX" ]; } then
 else
     alias tmux='tmux -f $CONFIG_DIR/tmux/.tmux.conf'
 fi
-
-# git
-alias gs='git status'                                                                                    
-alias gl='git pull'                                                                                      
-alias gp='git push'
-alias ga='git add'                                                                                     
-alias gal='git add .'
-alias gcm='git commit -m '
-alias gr='git restore --staged'
 
