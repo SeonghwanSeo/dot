@@ -31,6 +31,7 @@ local window_options = {
     relativenumber = true,
     linebreak = true,
     cursorline = true,
+    wrap = true,
 }
 
 for k, v in pairs(window_options) do

@@ -1,11 +1,48 @@
 -- Autocmd
-vim.api.nvim_exec([[autocmd FileType python set tabstop=4 shiftwidth=4]], false)
-vim.api.nvim_exec([[autocmd FileType lua set tabstop=2 shiftwidth=2]], false)
 
-vim.api.nvim_exec([[autocmd TermOpen * set nonu | :set nornu | :set signcolumn=no | :startinsert]], false)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"python"},
+  callback = function(event)
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+  end,
+})
 
-vim.api.nvim_exec([[autocmd WinEnter * if &buftype == '' | :set relativenumber | endif]], false)
-vim.api.nvim_exec([[autocmd WinLeave * if &buftype == '' | :set norelativenumber | endif]], false)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"lua"},
+  callback = function(event)
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+  end,
+})
 
--- nvim python
--- vim.api.nvim_exec([[autocmd FileType python nnoremap <C-i> :w<CR>:!python %<CR>]], false)
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function(event)
+    vim.wo.number = false
+    vim.wo.relativenumber = false
+    vim.wo.signcolumn = 'no'
+    vim.cmd("startinsert")
+  end,
+})
+
+vim.api.nvim_create_autocmd("WinEnter", {
+  callback = function(event)
+    if vim.api.nvim_buf_get_option(event.buf, 'buftype') == '' then
+      vim.wo.relativenumber = true
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("WinLeave", {
+  callback = function(event)
+    if vim.api.nvim_buf_get_option(event.buf, 'buftype') == '' then
+      vim.wo.relativenumber = false
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme",{
+  callback = function(event)
+    vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { guibg='red' })
+  end,
+})
