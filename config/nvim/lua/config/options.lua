@@ -18,6 +18,7 @@ local options = {
   --statusline = " %<%l:%v [%P]%=%a %F",
     hidden = true,
     laststatus = 2,
+    ignorecase = false,
 }
 
 for k, v in pairs(options) do

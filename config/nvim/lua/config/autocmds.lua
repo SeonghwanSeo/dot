@@ -40,9 +40,3 @@ vim.api.nvim_create_autocmd("WinLeave", {
     end
   end,
 })
-
-vim.api.nvim_create_autocmd("ColorScheme",{
-  callback = function(event)
-    vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { guibg='red' })
-  end,
-})

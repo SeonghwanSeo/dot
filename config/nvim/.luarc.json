@@ -41,6 +41,7 @@
         "/home/shwan/.local/share/nvim/lazy/vim-startuptime/lua",
         "/home/shwan/.local/share/nvim/lazy/nvim-ts-context-commentstring/lua",
         "/home/shwan/.config/nvim/lua",
-        "/home/shwan/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/7325922a"
+        "/home/shwan/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/7325922a",
+        "/Users/shwan/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/274d9f24"
     ]
 }
