@@ -35,17 +35,19 @@ function trash() {
         done
         metadatapath=$TRASH_DIR/.metadata/${newname}
 
+        local _answer=''
         if ! $f ; then
-            echo -n "Do you want to remove ${filepath}? [y|n]: "
-            read _answer
-
-            if [[ $_answer != 'y' ]]; then
-                continue
-            fi
+            while [[ $_answer != 'y' ]] && [[ $_answer != 'n' ]]
+            do
+                echo -n "Do you want to remove ${filepath}? [y|n]: "
+                read _answer
+            done
         fi
-        echo "Move $filepath to $newfilepath"
-        mv $filepath $newfilepath
-        echo $abspath > ${metadatapath}
+        if [ $f ] || [[ $_answer == 'y' ]]; then
+            echo "Move $filepath to $newfilepath"
+            mv $filepath $newfilepath
+            echo $abspath > ${metadatapath}
+        fi
     done
 }
 function trashrestore() {
