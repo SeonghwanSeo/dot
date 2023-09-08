@@ -12,6 +12,7 @@ local options = {
     expandtab = true,
     signcolumn = "yes:1", -- always show signcolumns
     autoindent = true, -- Insert indents automatically
+    smartindent = false, -- Insert indents automatically
     tabstop = 4, -- Number of spaces tabs count for
     ruler = true,
     clipboard = "unnamed,unnamedplus",

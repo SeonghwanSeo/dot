@@ -22,6 +22,13 @@ custom_map("v", "<A-k>", "<Esc>k", {noremap = false, silent = true})
 -- NvimTree
 -- custom_map("n", "<leader>e", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
 
+-- Delete Without Copy
+custom_map("v", "p", "\"_dP", {noremap = true, silent = true})
+custom_map("v", "d", "\"_d", {noremap = true, silent = true})
+custom_map("v", "s", "\"_s", {noremap = true, silent = true})
+custom_map("n", "x", "\"_x", {noremap = true, silent = true})
+custom_map("n", "s", "\"_s", {noremap = true, silent = true})
+
 -- Inactivate C-z
 custom_map("n", "<C-Z>", "<nop>", {silent = true})
 custom_map("v", "<C-Z>", "<nop>", {silent = true})    -- x(visual), s(select)

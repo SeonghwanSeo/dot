@@ -43,7 +43,7 @@ function trash() {
                 read _answer
             done
         fi
-        if [ $f ] || [[ $_answer == 'y' ]]; then
+        if $f || [[ $_answer == 'y' ]]; then
             echo "Move $filepath to $newfilepath"
             mv $filepath $newfilepath
             echo $abspath > ${metadatapath}
