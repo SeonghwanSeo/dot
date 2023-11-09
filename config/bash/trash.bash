@@ -94,7 +94,7 @@ function trashrm() {
             metadatapath=$TRASH_DIR/.metadata/${basename}
 
             eval "$command $filepath"
-            if [ ! -f $filepath ]; then
+            if [[ ! -e $filepath ]]; then
                 /bin/rm $metadatapath
             fi
         fi
