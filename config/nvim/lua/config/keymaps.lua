@@ -112,9 +112,9 @@ function _G.NumberToggle()
 end
 
 function _G.copy_mode()
-  vim.api.nvim_command("IndentBlanklineToggle")
+  vim.api.nvim_command("IBLToggle")
   vim.api.nvim_command("Gitsigns toggle_signs")
-  vim.api.nvim_command("lua require('lazyvim.util').toggle_diagnostics()")
+  vim.api.nvim_command("lua require('lazyvim.util').toggle.diagnostics()")
   NumberToggle()
   SignColumnToggle()
 end
