@@ -5,6 +5,7 @@ opts = {
   indent = { enable = false },
   ensure_installed = {
     "bash",
+    "lua",
     -- "html",
     "json",
     "yaml",

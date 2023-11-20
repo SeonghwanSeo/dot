@@ -1,7 +1,6 @@
 local Util = require("lazyvim.util")
 return {"neovim/nvim-lspconfig",
   opts = {
-    autoformat = false,
     servers = {
       lua_ls = {
         enabled = false,
@@ -22,7 +21,7 @@ return {"neovim/nvim-lspconfig",
         },
       },
       pylsp = {
-        root_dir = Util.get_root,
+        root_dir = Util.root.get,
         settings = {
           pylsp = {
             plugins = {
@@ -36,7 +35,7 @@ return {"neovim/nvim-lspconfig",
         }
       },
       pyright = {
-        root_dir = Util.get_root,
+        root_dir = Util.root.get,
         settings = {
           pyright = { disableLanguageServices = true, disableOrganizeImports = false },
           python = {

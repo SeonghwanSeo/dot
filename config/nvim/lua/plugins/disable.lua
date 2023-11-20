@@ -18,7 +18,7 @@ return {
   { "ggandor/leap.nvim", enabled = false },
   { "ggandor/flit.nvim", enabled = false },
   { "nvim-pack/nvim-spectre", enabled = false },
-  { "jose-elias-alvarez/null-ls.nvim", enabled = false },
+  { "nvimtools/none-ls.nvim", enabled = false },
   { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
   { "saadparwaiz1/cmp_luasnip", enabled = false },
   { "rafamadriz/friendly-snippets", enabled = false },
