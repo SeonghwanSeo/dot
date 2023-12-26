@@ -1,10 +1,9 @@
 return {
   "akinsho/bufferline.nvim",
-  event="VimEnter",
+  event = "VimEnter",
   opts = {
     highlights = {
       fill = {
-        -- fg = "#1a1b26",
         bg = "#1a1b26",
       },
       background = {
@@ -45,10 +44,10 @@ return {
       },
     },
     options = {
-      numbers = 'ordinal',
+      numbers = "ordinal",
       indicator = {
-        numbers = 'ordinal',
-        style = 'underline',
+        numbers = "ordinal",
+        style = "underline",
       },
       offsets = {
         {
@@ -64,5 +63,5 @@ return {
       show_close_icon = false,
       tab_size = 15,
     },
-  }
+  },
 }

@@ -1,4 +1,5 @@
-return {"danymat/neogen",
+return {
+  "danymat/neogen",
   keys = {
     {
       "<leader>cc",
@@ -10,4 +11,3 @@ return {"danymat/neogen",
   },
   opts = { snippet_engine = "luasnip" },
 }
-

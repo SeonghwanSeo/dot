@@ -4,5 +4,5 @@ return {
   event = "VeryLazy",
   opts = function()
     require("mini.jump").setup()
-  end
+  end,
 }
