@@ -3,7 +3,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       highlight = { enable = true },
-      indent = { enable = false },
+      indent = { enable = true },
       ensure_installed = {
         "bash",
         "lua",

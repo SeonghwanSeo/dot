@@ -100,35 +100,29 @@ vim.api.nvim_exec(
   false
 )
 
-local signcolumn_tog = true
-function _G.SignColumnToggle()
-  if signcolumn_tog then
+local copy_tog = true
+function _G.CopyToggle()
+  if copy_tog then
+    vim.api.nvim_command("NoiceDisable")
     vim.api.nvim_command("set scl=no")
-    signcolumn_tog = false
-  else
-    vim.api.nvim_command("set scl=yes")
-    signcolumn_tog = true
-  end
-end
-
-local nu_tog = true
-function _G.NumberToggle()
-  if nu_tog then
     vim.api.nvim_command("set nonumber")
     vim.api.nvim_command("set norelativenumber")
-    nu_tog = false
+    vim.api.nvim_command("set list!")
+    copy_tog = false
   else
+    vim.api.nvim_command("NoiceEnable")
+    vim.api.nvim_command("set scl=yes")
     vim.api.nvim_command("set number")
     vim.api.nvim_command("set relativenumber")
-    nu_tog = true
+    vim.api.nvim_command("set list")
+    copy_tog = true
   end
 end
 
 function _G.copy_mode()
+  CopyToggle()
   vim.api.nvim_command("IBLToggle")
   vim.api.nvim_command("Gitsigns toggle_signs")
   vim.api.nvim_command("lua require('lazyvim.util').toggle.diagnostics()")
-  NumberToggle()
-  SignColumnToggle()
 end
 custom_map("n", "<leader>cp", ":lua copy_mode()<CR>")
