@@ -11,34 +11,9 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua" },
+  pattern = { "lua", "toml" },
   callback = function(event)
     vim.bo.shiftwidth = 2
     vim.bo.tabstop = 2
-  end,
-})
-
-vim.api.nvim_create_autocmd("TermOpen", {
-  callback = function(event)
-    vim.wo.number = false
-    vim.wo.relativenumber = false
-    vim.wo.signcolumn = "no"
-    vim.cmd("startinsert")
-  end,
-})
-
-vim.api.nvim_create_autocmd("WinEnter", {
-  callback = function(event)
-    if vim.api.nvim_buf_get_option(event.buf, "buftype") == "" then
-      vim.wo.relativenumber = true
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd("WinLeave", {
-  callback = function(event)
-    if vim.api.nvim_buf_get_option(event.buf, "buftype") == "" then
-      vim.wo.relativenumber = false
-    end
   end,
 })

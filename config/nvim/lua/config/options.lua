@@ -8,18 +8,17 @@ vim.g.rooter_pattern = { ".git" }
 local options = {
   -- syntax = "ON",        -- str:  Allow syntax highlighting
   mouse = "",
-  showmatch = true, -- show (), {}, []
+  showmatch = true,     -- show (), {}, []
   wildmode = "longest:full,full",
-  shiftround = true, -- Round indent
-  shiftwidth = 4, -- Size of an indent
+  shiftround = true,    -- Round indent
+  shiftwidth = 4,       -- Size of an indent
   expandtab = true,
   signcolumn = "yes:1", -- always show signcolumns
-  autoindent = true, -- Insert indents automatically
-  smartindent = false, -- Insert indents automatically
-  tabstop = 4, -- Number of spaces tabs count for
+  autoindent = true,    -- Insert indents automatically
+  smartindent = false,  -- Insert indents automatically
+  tabstop = 4,          -- Number of spaces tabs count for
   ruler = true,
   clipboard = "unnamed,unnamedplus",
-  --statusline = " %<%l:%v [%P]%=%a %F",
   hidden = true,
   laststatus = 2,
   ignorecase = false,
@@ -43,16 +42,8 @@ for k, v in pairs(window_options) do
   vim.wo[k] = v
 end
 
--- buffer-local options
-local buffer_options = {
-  expandtab = true,
-  softtabstop = 4,
-  tabstop = 4,
-  shiftwidth = 4,
-  smartindent = true,
-  suffixesadd = ".lua",
-}
 
-for k, v in pairs(buffer_options) do
-  vim.bo[k] = v
-end
+-- -- LSP Server to use for Python.
+-- Set to "basedpyright" to use basedpyright instead of pyright.
+vim.g.lazyvim_python_lsp = "basedpyright"
+vim.g.lazyvim_python_ruff = "ruff_lsp"
