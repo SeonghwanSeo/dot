@@ -1,13 +1,23 @@
 return {
   "danymat/neogen",
+  config = function()
+    require("neogen").setup({
+      enabled = true,
+      snippet_engine = "luasnip",
+      languages = {
+        python = {
+          template = {
+            annotation_convention = "numpydoc",
+          },
+        },
+      },
+    })
+  end,
   keys = {
     {
       "<leader>nc",
-      function()
-        require("neogen").generate({})
-      end,
+      ":lua require('neogen').generate({})<CR>",
       desc = "Neogen Comment",
     },
   },
-  opts = { snippet_engine = "luasnip" },
 }

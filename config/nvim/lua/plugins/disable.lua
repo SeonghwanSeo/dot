@@ -1,16 +1,3 @@
 return {
   { "echasnovski/mini.pairs", enabled = false },
-  -- { "folke/flash.nvim",                            enabled = false },
-  -- { "folke/flash.nvim",                            enabled = false },
-  -- { "RRethy/vim-illuminate",                       enabled = false },
-  -- { "SmiteshP/nvim-navic",                         enabled = false },
-  -- { "folke/persistence.nvim",                      enabled = false },
-  -- { "tpope/vim-repeat",                            enabled = false },
-  -- { "ggandor/leap.nvim",                           enabled = false },
-  -- { "ggandor/flit.nvim",                           enabled = false },
-  -- { "nvim-pack/nvim-spectre",                      enabled = false },
-  -- { "nvimtools/none-ls.nvim",                      enabled = false },
-  -- { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
-  -- { "saadparwaiz1/cmp_luasnip",                    enabled = false },
-  -- { "rafamadriz/friendly-snippets",                enabled = false },
 }

@@ -1,46 +1,42 @@
 # .bashrc
 if { [ "$SHELLTYPE" = 'BASH' ]; }; then
-	source $CONFIG_DIR/git/git-completion.bash
-	source $CONFIG_DIR/git/git-prompt.sh
-	source $CONFIG_DIR/bash/ps1.bash
-	source $CONFIG_DIR/bash/trash.bash
+  source $CONFIG_DIR/git/git-completion.bash
+  source $CONFIG_DIR/git/git-prompt.sh
+  source $CONFIG_DIR/bash/ps1.bash
+  source $CONFIG_DIR/bash/trash.bash
 else
-	export MACOSX_DEPLOYMENT_TARGET=10.9
-	export CC=clang
-	export CXX=clang++
-	source $CONFIG_DIR/git/git-prompt.sh
-	source $CONFIG_DIR/bash/ps1.zsh
-	source $CONFIG_DIR/bash/trash.zsh
+  export MACOSX_DEPLOYMENT_TARGET=10.9
+  export CC=clang
+  export CXX=clang++
+  source $CONFIG_DIR/git/git-prompt.sh
+  source $CONFIG_DIR/bash/ps1.zsh
+  source $CONFIG_DIR/bash/trash.zsh
 fi
 
+export WANDB_ENTITY='seonghwanseo'
 export TERM=xterm-256color
 alias shome='cd $WORK_DIR'
 alias ls='ls --color'
 alias mv='mv -i'
 alias cp='cp -i'
-# function cd() { builtin cd $1 && ls; }
 alias rm='trash'
 
 alias vi='nvim'
 alias vir='vi -R'
 alias cls='clear && echo -en "\e[3J"'
 
-alias bashrc_cfg='vi $CONFIG_DIR/bash/.bashrc'
+alias removeempty='find . -type f -empty -print -delete'
+alias abspath='readlink -f'
 
 # git
 alias gs='git status'
-alias gl='git pull'
 alias gp='git push'
 alias ga='git add'
-alias gal='git add .'
 alias gcm='git commit -m '
-alias gr='git restore --staged'
 
 #tmux
-alias tmux='TERM=xterm-256color tmux'
+alias tmux='TERM=xterm-256color tmux -f $CONFIG_DIR/tmux/.tmux.conf'
 alias tmuxs='tmux -u new -s shwan'
 alias tn='tmux -u new -s '
 alias tas='tmux attach -t shwan'
 alias ta='tmux attach -t'
-
-alias tmux='tmux -f $CONFIG_DIR/tmux/.tmux.conf'
