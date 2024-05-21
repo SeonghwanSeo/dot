@@ -3,14 +3,6 @@
 -- Add any additional autocmds here
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "python" },
-  callback = function(event)
-    vim.bo.shiftwidth = 4
-    vim.bo.tabstop = 4
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
   pattern = { "lua", "toml" },
   callback = function(event)
     vim.bo.shiftwidth = 2
