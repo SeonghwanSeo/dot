@@ -6,6 +6,9 @@ vim.opt.signcolumn = "yes:1"
 vim.opt.ignorecase = false
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.wildmode = "longest:full,full"
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 -- -- LSP Server to use for Python.
 -- Set to "basedpyright" to use basedpyright instead of pyright.

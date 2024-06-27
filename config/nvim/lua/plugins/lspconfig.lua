@@ -18,15 +18,18 @@ return {
                 reportUnusedVariable = "none",
                 reportUnusedImport = "none",
               },
-            }
+            },
           },
         },
-        ruff_lsp = {
-          single_file_support = true,
-          ruff = {
-
-          }
-        }
+      },
+      ruff_lsp = {
+        single_file_support = true,
+        init_options = {
+          settings = {
+            lint = { args = { "--line-length=120" } },
+            format = { args = { "--line-length=120" } },
+          },
+        },
       },
     },
   },

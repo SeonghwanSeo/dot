@@ -40,8 +40,10 @@ map("n", "<leader>7", ":BufferLineGoToBuffer 7<CR>", { silent = true })
 map("n", "<leader>8", ":BufferLineGoToBuffer 8<CR>", { silent = true })
 map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", { silent = true })
 
-vim.api.nvim_exec(
-  [[
+-- Outline
+map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+
+vim.cmd([[
   cnoreabbrev W w
   cnoreabbrev W! w!
   cnoreabbrev Wq wq
@@ -52,9 +54,7 @@ vim.api.nvim_exec(
   cnoreabbrev Q! q!
   cnoreabbrev q1 q!
   cnoreabbrev Q1 q!
-]],
-  false
-)
+]])
 
 local copy_tog = true
 function _G.CopyToggle()
